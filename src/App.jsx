@@ -290,10 +290,13 @@ export default function App() {
             <aside className={`${activeContact ? 'hidden' : 'flex'} md:flex w-full md:w-1/3 lg:w-1/4 bg-white border-r border-slate-200 flex-col`}>
                 <header className="p-4 border-b border-slate-200 flex-shrink-0"><div className="flex items-center justify-between"><h2 className="text-xl font-bold">Amigos</h2><button onClick={() => setIsModalOpen(true)} className="p-2 rounded-full hover:bg-slate-200 transition-colors"><svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg></button></div></header>
                 <ContactList contacts={contacts} onSelectContact={handleSelectContact} activeContactId={activeContact?.id} />
-                <footer className="p-4 border-t border-slate-200 bg-slate-50 md:hidden">
-                    <p className="text-sm text-slate-500 mb-1 font-semibold">Seu Código:</p>
-                    <div className="flex items-center bg-white border border-slate-200 rounded-lg p-2"><span className="font-mono text-green-700 text-sm w-full">{userProfile.friendCode}</span><button onClick={handleCopyCode} className="ml-2 p-2 rounded-md hover:bg-slate-100 transition-colors"><svg className="w-4 h-4 text-slate-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></button></div>
-                </footer>
+                {}
+                {userProfile && (
+                    <footer className="p-4 border-t border-slate-200 bg-slate-50">
+                        <p className="text-sm text-slate-500 mb-1 font-semibold">Seu Código de Amigo:</p>
+                        <div className="flex items-center bg-white border border-slate-200 rounded-lg p-2"><span className="font-mono text-green-700 text-sm w-full">{userProfile.friendCode}</span><button onClick={handleCopyCode} className="ml-2 p-2 rounded-md hover:bg-slate-100 transition-colors"><svg className="w-4 h-4 text-slate-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></button></div>
+                    </footer>
+                )}
             </aside>
             
             <main className={`${activeContact ? 'flex' : 'hidden'} md:flex flex-1 flex-col`}> 
