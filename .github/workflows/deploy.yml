@@ -26,4 +26,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANONYCHAT_11E71 }}'
           channelId: live
-          projectId: anonichat-11e71
+          projectId: anonychat-11e71
