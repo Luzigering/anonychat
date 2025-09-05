@@ -1,5 +1,6 @@
-# React + Vite
-
+# App anônimo de mensagens
+<img width="1895" height="994" alt="image" src="https://github.com/user-attachments/assets/30bb8d8d-eed5-49d8-b106-13d7db979f09" />
+Fase BETA
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
