@@ -262,6 +262,15 @@ export default function App() {
         const friendData = friendDoc.data();
         const newRoomRef = doc(collection(db, 'rooms'));
         const batch = writeBatch(db);
+
+batch.set(newRoomRef, {
+    participants: [user.uid, friendId],
+    createdAt: serverTimestamp() 
+});
+
+
+batch.set(doc(db, 'users', user.uid, 'contacts', friendId), { displayName: friendData.displayName, roomId: newRoomRef.id });
+// ...
         batch.set(doc(db, 'users', user.uid, 'contacts', friendId), { displayName: friendData.displayName, roomId: newRoomRef.id });
         batch.set(doc(db, 'users', friendId, 'contacts', user.uid), { displayName: userProfile.displayName, roomId: newRoomRef.id });
         await batch.commit();
